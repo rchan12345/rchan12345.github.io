@@ -1,0 +1,871 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ryan Chan | Medical Robotics Portfolio</title>
+  <style>
+    :root {
+      --bg: #f4f4f5;
+      --card: #ffffff;
+      --ink: #0b0d12;
+      --muted: #5d6470;
+      --line: #d9dce2;
+      --line-strong: #0f1117;
+      --blue: #1c6ef2;
+      --blue-dark: #0c43b7;
+      --accent: #ff6a00;
+      --accent-soft: #fff0e6;
+      --grid: rgba(15, 17, 23, 0.055);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Optimistic VF", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      letter-spacing: 0;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .shell {
+      width: min(1184px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(244, 244, 245, 0.92);
+      border-bottom: 2px solid var(--line);
+      backdrop-filter: blur(16px);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 72px;
+      gap: 20px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      line-height: 1;
+      font-weight: 800;
+    }
+
+    .mark {
+      display: grid;
+      width: 32px;
+      height: 32px;
+      place-items: center;
+      border: 2px solid var(--line-strong);
+      border-radius: 50%;
+      background: var(--card);
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+
+    .nav-links a,
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 38px;
+      border: 2px solid var(--line);
+      border-radius: 999px;
+      padding: 9px 14px;
+      background: var(--card);
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1;
+      font-weight: 700;
+    }
+
+    .nav-links a:hover,
+    .button:hover {
+      border-color: var(--line-strong);
+      color: var(--ink);
+    }
+
+    main {
+      overflow: hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    h1 {
+      max-width: 860px;
+      color: var(--ink);
+      font-size: 32px;
+      line-height: 1.12;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    h2 {
+      color: var(--ink);
+      font-size: 32px;
+      line-height: 1.1;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      color: var(--ink);
+      font-size: 20px;
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    p,
+    li {
+      color: var(--ink);
+      font-size: 14px;
+      line-height: 1.62;
+      font-weight: 500;
+    }
+
+    .body2 {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+      font-weight: 400;
+    }
+
+    .eyebrow {
+      margin-bottom: 14px;
+      color: var(--blue);
+      font-size: 12px;
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .hero {
+      padding: 56px 0 44px;
+    }
+
+    .hero-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 0.95fr) minmax(420px, 1.05fr);
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .hero-copy {
+      display: flex;
+      min-height: 520px;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 32px;
+      padding: 32px;
+      border: 2px solid var(--line-strong);
+      border-radius: 4px;
+      background: var(--card);
+    }
+
+    .hero-copy p:not(.eyebrow) {
+      max-width: 620px;
+      color: var(--muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .button.primary {
+      border-color: var(--line-strong);
+      background: var(--ink);
+      color: var(--card);
+    }
+
+    .button svg {
+      width: 16px;
+      height: 16px;
+      stroke-width: 2;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 520px;
+      overflow: hidden;
+      border: 2px solid var(--line-strong);
+      border-radius: 4px;
+      background:
+        linear-gradient(var(--grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid) 1px, transparent 1px),
+        linear-gradient(135deg, #ddecff 0%, #f8fbff 45%, #b7d3ff 100%);
+      background-size: 32px 32px, 32px 32px, auto;
+    }
+
+    .hero-visual img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-visual img.img-missing {
+      display: none;
+    }
+
+    /* When a real image is present, hide the CSS-drawn placeholder graphic */
+    .hero-visual:has(img:not(.img-missing)) .scan-grid,
+    .hero-visual:has(img:not(.img-missing)) .scan-object,
+    .hero-visual:has(img:not(.img-missing)) .scan-chip {
+      display: none;
+    }
+
+    .scan-grid {
+      position: absolute;
+      inset: 28px;
+      border: 2px solid rgba(15, 17, 23, 0.16);
+      border-radius: 4px;
+    }
+
+    .scan-object {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: min(64%, 360px);
+      aspect-ratio: 1 / 1;
+      border: 2px solid var(--line-strong);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.74);
+      transform: translate(-50%, -50%);
+    }
+
+    .scan-object::before,
+    .scan-object::after {
+      content: "";
+      position: absolute;
+      border: 2px solid var(--line-strong);
+      background: var(--card);
+    }
+
+    .scan-object::before {
+      width: 66%;
+      height: 9%;
+      left: 17%;
+      top: 45%;
+      border-radius: 2px;
+      transform: rotate(-45deg);
+    }
+
+    .scan-object::after {
+      width: 24%;
+      height: 24%;
+      right: 12%;
+      bottom: 13%;
+      border-radius: 50%;
+      background: var(--accent-soft);
+    }
+
+    .scan-chip {
+      position: absolute;
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      border: 2px solid var(--line-strong);
+      border-radius: 999px;
+      padding: 6px 10px;
+      background: var(--card);
+      color: var(--ink);
+      font-size: 12px;
+      line-height: 1;
+      font-weight: 700;
+    }
+
+    .scan-chip.one {
+      left: 34px;
+      top: 34px;
+    }
+
+    .scan-chip.two {
+      right: 34px;
+      bottom: 34px;
+      border-color: var(--accent);
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .metric {
+      border: 2px solid var(--line);
+      border-radius: 4px;
+      padding: 12px;
+      background: #fafafa;
+    }
+
+    .metric strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--accent);
+      font-size: 20px;
+      line-height: 1;
+      font-weight: 800;
+    }
+
+    section {
+      padding: 44px 0;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .section-head p {
+      max-width: 430px;
+      color: var(--muted);
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .project-card {
+      display: flex;
+      min-width: 0;
+      flex-direction: column;
+      gap: 18px;
+      border: 2px solid var(--line-strong);
+      border-radius: 4px;
+      padding: 16px;
+      background: var(--card);
+    }
+
+    .project-visual {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      overflow: hidden;
+      border: 2px solid var(--line);
+      border-radius: 4px;
+      background:
+        linear-gradient(var(--grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid) 1px, transparent 1px),
+        #fafafa;
+      background-size: 20px 20px;
+    }
+
+    .project-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .project-visual img.img-contain {
+      object-fit: contain;
+      background: #ffffff;
+    }
+
+    .project-visual img.img-missing {
+      display: none;
+    }
+
+    /* When a real image is present, hide the CSS-drawn placeholder shapes */
+    .project-visual:has(img:not(.img-missing))::before,
+    .project-visual:has(img:not(.img-missing))::after {
+      display: none;
+    }
+
+    .project-visual::before,
+    .project-visual::after {
+      content: "";
+      position: absolute;
+      border: 2px solid var(--line-strong);
+      background: var(--card);
+    }
+
+    .project-visual::before {
+      inset: 20% 18%;
+      border-radius: 50%;
+    }
+
+    .project-visual::after {
+      width: 58%;
+      height: 9%;
+      left: 21%;
+      top: 45%;
+      border-radius: 2px;
+      transform: rotate(-45deg);
+    }
+
+    .project-visual.portal::before {
+      inset: 18% 26% 18% 16%;
+      border-radius: 2px;
+      transform: skewX(-12deg);
+    }
+
+    .project-visual.portal::after {
+      left: 28%;
+      transform: rotate(45deg);
+    }
+
+    .project-visual.endo::before {
+      inset: 22%;
+      border-radius: 2px;
+    }
+
+    .project-visual.endo::after {
+      width: 34%;
+      height: 34%;
+      left: 33%;
+      top: 33%;
+      border-radius: 50%;
+      background: var(--accent-soft);
+      transform: none;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 26px;
+      border: 2px solid var(--line);
+      border-radius: 4px;
+      padding: 4px 8px;
+      color: var(--muted);
+      background: #fafafa;
+      font-size: 12px;
+      line-height: 1;
+      font-weight: 400;
+    }
+
+    .tag.active {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      color: var(--ink);
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 18px;
+    }
+
+    li + li {
+      margin-top: 8px;
+    }
+
+    .publication-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .publication {
+      min-width: 0;
+      border: 2px solid var(--line-strong);
+      border-radius: 4px;
+      padding: 18px;
+      background: var(--card);
+    }
+
+    .publication h3 {
+      margin-bottom: 10px;
+    }
+
+    .publication p {
+      color: var(--muted);
+    }
+
+    a.publication {
+      display: block;
+      transition: border-color 0.15s ease, transform 0.15s ease;
+    }
+
+    a.publication:hover {
+      border-color: var(--blue);
+      transform: translateY(-2px);
+    }
+
+    a.publication:hover h3 {
+      color: var(--blue);
+    }
+
+    .footer {
+      padding: 8px 0 40px;
+    }
+
+    .footer-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      border: 2px solid var(--line-strong);
+      border-radius: 4px;
+      padding: 20px;
+      background: var(--card);
+      flex-wrap: wrap;
+    }
+
+    .footer-card p {
+      color: var(--muted);
+    }
+
+    .footer-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 980px) {
+      .hero-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-copy,
+      .hero-visual {
+        min-height: 420px;
+      }
+
+      .project-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .publication-list {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .shell {
+        width: min(100% - 24px, 1184px);
+      }
+
+      .nav,
+      .section-head,
+      .footer-card {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .hero {
+        padding-top: 32px;
+      }
+
+      .hero-copy {
+        min-height: auto;
+        padding: 20px;
+      }
+
+      .hero-visual {
+        min-height: 360px;
+      }
+
+      .metrics,
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <nav class="shell nav" aria-label="Primary navigation">
+      <a class="brand" href="#">
+        <span class="mark">RC</span>
+        <span>Ryan Chan</span>
+      </a>
+      <div class="nav-links">
+        <a href="#output">Research Output</a>
+        <a href="#projects">Research @ ARCADE</a>
+        <a href="#industry">Industry Experience</a>
+        <a href="#imaging">Other Research Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="shell hero-layout">
+        <div class="hero-copy">
+          <div>
+            <p class="eyebrow">Johns Hopkins Biomedical Engineering</p>
+            <h1>Hi, I'm Chin Hang Ryan Chan. I build computer-assisted surgical systems, medical imaging pipelines, and device prototypes.</h1>
+          </div>
+          <p>B.S./M.S.E. student in Biomedical Engineering at Johns Hopkins, working across endoscopic 3D reconstruction, surgical robotics simulation, hyperpolarized MRI, and industry-sponsored medical device design.</p>
+          <div class="metrics" aria-label="Research focus areas">
+            <div class="metric">
+              <strong>5</strong>
+              <span class="body2">Peer-reviewed publications</span>
+            </div>
+            <div class="metric">
+              <strong>3</strong>
+              <span class="body2">Years of Research Experience at Johns Hopkins and Memorial Sloan Kettering</span>
+            </div>
+            <div class="metric">
+              <strong>2</strong>
+              <span class="body2">Industry R&D experiences with Cornerstone Robotics and Smith+Nephew</span>
+            </div>
+          </div>
+          <div class="hero-actions">
+            <a class="button primary" href="#output">View Research Output</a>
+            <a class="button" href="#contact">Contact</a>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="Blue geometric surgical robotics visualization">
+          <!-- TODO: add image -->
+          <img src="images/ryan_main.jpg" alt="Ryan Chan portrait or project visualization" onerror="this.classList.add('img-missing')">
+          <div class="scan-grid"></div>
+          <div class="scan-object"></div>
+          <div class="scan-chip one">3D Reconstruction</div>
+          <div class="scan-chip two">Robotic Surgery</div>
+        </div>
+      </div>
+    </section>
+    <section id="output" class="shell" aria-labelledby="publications-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Publications and Honors</p>
+          <h2 id="publications-title">Research Output</h2>
+        </div>
+        <p>Peer-reviewed work in surgical navigation, urology device innovation, and computer-assisted interventions.</p>
+      </div>
+
+      <div class="publication-list">
+        <a class="publication" href="https://iopscience.iop.org/article/10.1088/1873-4030/ae91ee" target="_blank" rel="noopener"><!-- TODO: replace # with DOI/PubMed link -->
+          <h3>A Benchtop Model for Penile Clamp Biofluid Mechanics</h3>
+          <p>Goyal, T., Chan, C.H.R., et al. Medical Engineering &amp; Physics, 2026. </p>
+        </a>
+        <a class="publication" href="https://link.springer.com/article/10.1007/s11548-026-03650-y" target="_blank" rel="noopener"><!-- TODO: replace # with DOI/PubMed link -->
+          <h3>Global Region Reidentification for Camera Relocalization (IPCAI)</h3>
+          <p>Soberanis-Mukul, R.D., Chou, R., Chan, C.H.R., et al. Int J CARS, 2026. Special Issue: IPCAI 2026. </p>
+        </a>
+        <a class="publication" href="https://pubmed.ncbi.nlm.nih.gov/41377485/" target="_blank" rel="noopener"><!-- TODO: replace # with DOI/PubMed link -->
+          <h3>Monocular Vision-Based Endoscopic Sinus Navigation (MICCAI AE-CAI)</h3>
+          <p>Soberanis-Mukul, R.D., Chan, C.H.R., et al. Healthcare Technology Letters, 2025. Special Issue: MICCAI AE-CAI 2025. Co-first author</p>
+        </a>
+        <a class="publication" href="https://pubmed.ncbi.nlm.nih.gov/39280661/" target="_blank" rel="noopener"><!-- TODO: replace # with DOI/PubMed link -->
+          <h3>Narrative Patent Review: Male SUI Devices</h3>
+          <p>Sadlowski, A.J., et al., Chan, C.H.R. Transl Androl Urol 13.8 (2024): 1602-1617. </p>
+        </a>
+        <a class="publication" href="https://www.auajournals.org/doi/10.1097/01.JU.0001191316.72449.22.21" target="_blank" rel="noopener"><!-- TODO: replace # with DOI/PubMed link -->
+          <h3>CONTIPANTS: Reusable Compressive Incontinence Brief </h3>
+          <p>Shaik, A.S., et al., Chan, C.H.R. J Urol, vol. 215, no. 5S, p. e203, 2026. </p>
+        </a>
+      </div>
+    </section>
+
+    <section id="projects" class="shell" aria-labelledby="projects-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Projects</p>
+          <h2 id="projects-title">Projects at ARCADE Lab</h2>
+        </div>
+        <p>Selected work from ARCADE Lab, mentored by Prof. Mathias Unberath and Dr. Roger D. Soberanis-Mukul</p>
+      </div>
+
+      <div class="project-grid">
+        <article class="project-card">
+          <div class="project-visual"><!-- TODO: add image --><img src="images/endoscopic-reconstruction.jpg" alt="Real-Time Endoscopic 3D Reconstruction" class="img-contain" onerror="this.classList.add('img-missing')"></div>
+          <h3>Real-Time Endoscopic 3D Reconstruction</h3>
+          <div class="tags">
+            <span class="tag active">ARCADE Lab</span>
+            <span class="tag">ROS2</span>
+            <span class="tag">3D Slicer</span>
+            <span class="tag">SLAM</span>
+          </div>
+          <ul>
+            <li>Implemented real-time 3D reconstruction for sinus endoscopy using ROS2, Python, and computer vision.</li>
+            <li>Improved reconstruction framerate by 300%, enabling real-time clinical visualization workflows.</li>
+            <li>Registered camera trajectory into 3D Slicer with 3.2 mm / 4.9 degree pose accuracy across 10 cadaveric trials.</li>
+          </ul>
+        </article>
+
+        <article class="project-card">
+          <div class="project-visual portal"><!-- TODO: add image --><img src="images/camera-relocalization.jpg" alt="Camera Relocalization for Surgical Navigation" class="img-contain" onerror="this.classList.add('img-missing')"></div>
+          <h3>Camera Relocalization for Surgical Navigation</h3>
+          <div class="tags">
+            <span class="tag active">ARCADE Lab</span>
+            <span class="tag">DINOv2</span>
+            <span class="tag">ORB / PnP</span>
+            <span class="tag">Python</span>
+          </div>
+          <ul>
+            <li>Built a training-free camera relocalization pipeline combining DINOv2-based global image retrieval with local feature matching and PnP pose recovery.</li>
+            <li>Reidentified the surgical region of interest and relocalized up to 78% of query frames without any fine-tuning or CT-space exhaustive matching.</li>
+            <li>Outperformed a prior global-matching baseline, cutting translation error to 1.9 mm and rotation error to 0.17 rad while running at real-time frame rates.</li>
+          </ul>
+        </article>
+
+        <article class="project-card">
+          <div class="project-visual"><!-- TODO: add image --><img src="images/stereoscopic-mesh.jpg" alt="3D Mesh Reconstruction via Stereoscopic Imaging" class="img-contain" onerror="this.classList.add('img-missing')"></div>
+          <h3>3D Mesh Reconstruction via Stereoscopic Imaging</h3>
+          <div class="tags">
+            <span class="tag active">ARPA-H / ARCADE Lab</span>
+            <span class="tag">OneSLAM</span>
+            <span class="tag">Stereo Depth</span>
+            <span class="tag">Open3D</span>
+          </div>
+          <ul>
+            <li>Developed a mosaicking pipeline that fuses monocular SLAM trajectories (OneSLAM) with stereoscopic depth estimation into a scaled, registered 3D mesh.</li>
+            <li>Designed a continuous scaling and outlier-rejection scheme to correct depth-derived scale drift, aligning reconstructed meshes to DVRK/ECM ground-truth geometry.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="industry" class="shell" aria-labelledby="industry-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Industry Experience</p>
+          <h2 id="industry-title">Industry R&amp;D Projects</h2>
+        </div>
+        <p>Industry R&amp;D projects in medical robotics and device design.</p>
+      </div>
+
+      <div class="project-grid">
+        <article class="project-card">
+          <div class="project-visual portal"><!-- TODO: add image --><img src="images/cornerstone.jpg" alt="CSR" onerror="this.classList.add('img-missing')"></div>
+          <h3> Internship at Cornerstone Robotics </h3>
+          <div class="tags">
+            <span class="tag active">Cornerstone Robotics</span>
+            <span class="tag">DDS</span>
+            <span class="tag">ROS2</span>
+            <span class="tag">RL</span>
+          </div>
+          <ul>
+            <li>Developed a simulation environment for robotic surgical system </li>
+          </ul>
+        </article>
+
+        <article class="project-card">
+          <div class="project-visual endo"><!-- TODO: add image --><img src="images/hip-arthroscopy.jpg" alt="Hip Arthroscopy Tool Design" onerror="this.classList.add('img-missing')"></div>
+          <h3>Design Team Lead - Sponsored Project</h3>
+          <div class="tags">
+            <span class="tag active">Smith & Nephew</span>
+            <span class="tag">PTC Creo</span>
+            <span class="tag">Clinical Needs</span>
+            <span class="tag">Prototyping</span>
+          </div>
+          <ul>
+            <li>Applied iterative design, prototyping, and surgical workflow analysis to develop hip arthroscopic tool concepts.</li>
+            <li>Modeled prototypes and technical drawings in PTC Creo while coordinating clinicians and industry mentors.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="imaging" class="shell" aria-labelledby="more-work-title">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">Additional Work</p>
+          <h2 id="more-work-title">Imaging and Device Research</h2>
+        </div>
+        <p>Research experience spans MRI acquisition, micro-robotics, and patient-centered urology device validation.</p>
+      </div>
+
+      <div class="project-grid">
+        <article class="project-card">
+          <div class="project-visual portal"><!-- TODO: add image --><img src="images/mri-imaging.jpg" class="img-contain" alt="Diffusion-Weighted MRI at MSK" onerror="this.classList.add('img-missing')"></div>
+          <h3>Diffusion-Weighted MRI at MSK</h3>
+          <div class="tags">
+            <span class="tag active">MSKCC</span>
+            <span class="tag">EPI</span>
+            <span class="tag">ParaVision 360</span>
+          </div>
+          <ul>
+            <li>Researched hyperpolarized imaging and diffusion-weighted MRI for tumor metabolism and transport dynamics.</li>
+          </ul>
+        </article>
+
+        <article class="project-card">
+          <div class="project-visual endo"><!-- TODO: add image --><img src="images/magnetic-microtools.jpg" class="img-contain" alt="Magnetic Micro Tools" onerror="this.classList.add('img-missing')"></div>
+          <h3>Magnetic Micro Tools</h3>
+          <div class="tags">
+            <span class="tag active">IMERSE Lab</span>
+            <span class="tag">3D Printing</span>
+            <span class="tag">PTC Creo</span>
+          </div>
+          <ul>
+            <li>Designed and prototyped magnetic micro tools for coil-driven precision manipulation.</li>
+          </ul>
+        </article>
+
+        <article class="project-card">
+          <div class="project-visual"><!-- TODO: add image --><img src="images/urology-device-testing.jpg" class="img-contain" alt="Male Stress Incontinence Device Testing" onerror="this.classList.add('img-missing')"></div>
+          <h3>Male Stress Incontinence Device Development & Testing</h3>
+          <div class="tags">
+            <span class="tag active">JHU Urology</span>
+            <span class="tag">FEA</span>
+            <span class="tag">Arduino</span>
+          </div>
+          <ul>
+            <li>Developed penile clamp verification tests, CAD models, FEA workflows, and material analysis.</li>
+            <li>Built load-cell and urinary tract benchtop models with realistic urine and blood flow.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <footer id="contact" class="shell footer">
+    <div class="footer-card">
+      <p class="body2">Ryan Chan | Johns Hopkins B.S./M.S.E. Biomedical Engineering </p>
+      <div class="footer-actions">
+        <a class="button" href="mailto:cchan68@jh.edu" aria-label="Email Ryan Chan">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
+          Email
+        </a>
+        <a class="button" href="https://www.linkedin.com/in/ryan-chan2/" aria-label="LinkedIn profile">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

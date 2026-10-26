@@ -3,616 +3,173 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ryan Chan | Portfolio</title>
+  <title>Ryan Chan | Biomedical Engineering &amp; Surgical Robotics</title>
+  <meta name="description" content="Ryan Chan is a Johns Hopkins biomedical engineering B.S./M.S.E. student working in surgical robotics, computer vision, medical imaging, and device design.">
   <style>
-    :root {
-      --bg: #f4f4f5;
-      --card: #ffffff;
-      --ink: #0b0d12;
-      --muted: #5d6470;
-      --line: #d9dce2;
-      --line-strong: #0f1117;
-      --blue: #1c6ef2;
-      --blue-dark: #0c43b7;
-      --accent: #ff6a00;
-      --accent-soft: #fff0e6;
-      --grid: rgba(15, 17, 23, 0.055);
-    }
 
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--ink);
-      font-family: "Optimistic VF", Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      letter-spacing: 0;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .shell {
-      width: min(1184px, calc(100% - 32px));
-      margin: 0 auto;
-    }
-
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: rgba(244, 244, 245, 0.92);
-      border-bottom: 2px solid var(--line);
-      backdrop-filter: blur(16px);
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      min-height: 72px;
-      gap: 20px;
-    }
-
-    .brand {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 14px;
-      line-height: 1;
-      font-weight: 800;
-    }
-
-    .mark {
-      display: grid;
-      width: 32px;
-      height: 32px;
-      place-items: center;
-      border: 2px solid var(--line-strong);
-      border-radius: 50%;
-      background: var(--card);
-      color: var(--blue);
-      font-size: 12px;
-      font-weight: 800;
-    }
-
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-      gap: 8px;
-    }
-
-    .nav-links a,
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 38px;
-      border: 2px solid var(--line);
-      border-radius: 999px;
-      padding: 9px 14px;
-      background: var(--card);
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1;
-      font-weight: 700;
-    }
-
-    .nav-links a:hover,
-    .button:hover {
-      border-color: var(--line-strong);
-      color: var(--ink);
-    }
-
-    main {
-      overflow: hidden;
-    }
-
-    h1,
-    h2,
-    h3,
-    p {
-      margin: 0;
-    }
-
-    h1 {
-      max-width: 860px;
-      color: var(--ink);
-      font-size: 32px;
-      line-height: 1.12;
-      font-weight: 800;
-      letter-spacing: 0;
-    }
-
-    h2 {
-      color: var(--ink);
-      font-size: 32px;
-      line-height: 1.1;
-      font-weight: 800;
-      letter-spacing: 0;
-    }
-
-    h3 {
-      color: var(--ink);
-      font-size: 20px;
-      line-height: 1.2;
-      font-weight: 800;
-      letter-spacing: 0;
-    }
-
-    p,
-    li {
-      color: var(--ink);
-      font-size: 14px;
-      line-height: 1.62;
-      font-weight: 500;
-    }
-
-    .body2 {
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.45;
-      font-weight: 400;
-    }
-
-    .eyebrow {
-      margin-bottom: 14px;
-      color: var(--blue);
-      font-size: 12px;
-      line-height: 1.2;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .hero {
-      padding: 56px 0 44px;
-    }
-
-    .hero-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 0.95fr) minmax(420px, 1.05fr);
-      gap: 20px;
-      align-items: stretch;
-    }
-
-    .hero-copy {
-      display: flex;
-      min-height: 520px;
-      flex-direction: column;
-      justify-content: space-between;
-      gap: 32px;
-      padding: 32px;
-      border: 2px solid var(--line-strong);
-      border-radius: 4px;
-      background: var(--card);
-    }
-
-    .hero-copy p:not(.eyebrow) {
-      max-width: 620px;
-      color: var(--muted);
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .button.primary {
-      border-color: var(--line-strong);
-      background: var(--ink);
-      color: var(--card);
-    }
-
-    .button svg {
-      width: 16px;
-      height: 16px;
-      stroke-width: 2;
-    }
-
-    .hero-visual {
-      position: relative;
-      min-height: 520px;
-      overflow: hidden;
-      border: 2px solid var(--line-strong);
-      border-radius: 4px;
-      background:
-        linear-gradient(var(--grid) 1px, transparent 1px),
-        linear-gradient(90deg, var(--grid) 1px, transparent 1px),
-        linear-gradient(135deg, #ddecff 0%, #f8fbff 45%, #b7d3ff 100%);
-      background-size: 32px 32px, 32px 32px, auto;
-    }
-
-    .hero-visual img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .hero-visual img.img-missing {
-      display: none;
-    }
-
-    /* When a real image is present, hide the CSS-drawn placeholder graphic */
-    .hero-visual:has(img:not(.img-missing)) .scan-grid,
-    .hero-visual:has(img:not(.img-missing)) .scan-object,
-    .hero-visual:has(img:not(.img-missing)) .scan-chip {
-      display: none;
-    }
-
-    .scan-grid {
-      position: absolute;
-      inset: 28px;
-      border: 2px solid rgba(15, 17, 23, 0.16);
-      border-radius: 4px;
-    }
-
-    .scan-object {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      width: min(64%, 360px);
-      aspect-ratio: 1 / 1;
-      border: 2px solid var(--line-strong);
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.74);
-      transform: translate(-50%, -50%);
-    }
-
-    .scan-object::before,
-    .scan-object::after {
-      content: "";
-      position: absolute;
-      border: 2px solid var(--line-strong);
-      background: var(--card);
-    }
-
-    .scan-object::before {
-      width: 66%;
-      height: 9%;
-      left: 17%;
-      top: 45%;
-      border-radius: 2px;
-      transform: rotate(-45deg);
-    }
-
-    .scan-object::after {
-      width: 24%;
-      height: 24%;
-      right: 12%;
-      bottom: 13%;
-      border-radius: 50%;
-      background: var(--accent-soft);
-    }
-
-    .scan-chip {
-      position: absolute;
-      display: inline-flex;
-      align-items: center;
-      min-height: 30px;
-      border: 2px solid var(--line-strong);
-      border-radius: 999px;
-      padding: 6px 10px;
-      background: var(--card);
-      color: var(--ink);
-      font-size: 12px;
-      line-height: 1;
-      font-weight: 700;
-    }
-
-    .scan-chip.one {
-      left: 34px;
-      top: 34px;
-    }
-
-    .scan-chip.two {
-      right: 34px;
-      bottom: 34px;
-      border-color: var(--accent);
-    }
-
-    .metrics {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-    }
-
-    .metric {
-      border: 2px solid var(--line);
-      border-radius: 4px;
-      padding: 12px;
-      background: #fafafa;
-    }
-
-    .metric strong {
-      display: block;
-      margin-bottom: 6px;
-      color: var(--accent);
-      font-size: 20px;
-      line-height: 1;
-      font-weight: 800;
-    }
-
-    section {
-      padding: 44px 0;
-    }
-
-    .section-head {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 24px;
-      margin-bottom: 24px;
-    }
-
-    .section-head p {
-      max-width: 430px;
-      color: var(--muted);
-    }
-
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .project-card {
-      display: flex;
-      min-width: 0;
-      flex-direction: column;
-      gap: 18px;
-      border: 2px solid var(--line-strong);
-      border-radius: 4px;
-      padding: 16px;
-      background: var(--card);
-    }
-
-    .project-visual {
-      position: relative;
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      overflow: hidden;
-      border: 2px solid var(--line);
-      border-radius: 4px;
-      background:
-        linear-gradient(var(--grid) 1px, transparent 1px),
-        linear-gradient(90deg, var(--grid) 1px, transparent 1px),
-        #fafafa;
-      background-size: 20px 20px;
-    }
-
-    .project-visual img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .project-visual img.img-contain {
-      object-fit: contain;
-      background: #ffffff;
-    }
-
-    .project-visual img.img-missing {
-      display: none;
-    }
-
-    /* When a real image is present, hide the CSS-drawn placeholder shapes */
-    .project-visual:has(img:not(.img-missing))::before,
-    .project-visual:has(img:not(.img-missing))::after {
-      display: none;
-    }
-
-    .project-visual::before,
-    .project-visual::after {
-      content: "";
-      position: absolute;
-      border: 2px solid var(--line-strong);
-      background: var(--card);
-    }
-
-    .project-visual::before {
-      inset: 20% 18%;
-      border-radius: 50%;
-    }
-
-    .project-visual::after {
-      width: 58%;
-      height: 9%;
-      left: 21%;
-      top: 45%;
-      border-radius: 2px;
-      transform: rotate(-45deg);
-    }
-
-    .project-visual.portal::before {
-      inset: 18% 26% 18% 16%;
-      border-radius: 2px;
-      transform: skewX(-12deg);
-    }
-
-    .project-visual.portal::after {
-      left: 28%;
-      transform: rotate(45deg);
-    }
-
-    .project-visual.endo::before {
-      inset: 22%;
-      border-radius: 2px;
-    }
-
-    .project-visual.endo::after {
-      width: 34%;
-      height: 34%;
-      left: 33%;
-      top: 33%;
-      border-radius: 50%;
-      background: var(--accent-soft);
-      transform: none;
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      min-height: 26px;
-      border: 2px solid var(--line);
-      border-radius: 4px;
-      padding: 4px 8px;
-      color: var(--muted);
-      background: #fafafa;
-      font-size: 12px;
-      line-height: 1;
-      font-weight: 400;
-    }
-
-    .tag.active {
-      border-color: var(--accent);
-      background: var(--accent-soft);
-      color: var(--ink);
-    }
-
-    ul {
-      margin: 0;
-      padding-left: 18px;
-    }
-
-    li + li {
-      margin-top: 8px;
-    }
-
-    .publication-list {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .publication {
-      min-width: 0;
-      border: 2px solid var(--line-strong);
-      border-radius: 4px;
-      padding: 18px;
-      background: var(--card);
-    }
-
-    .publication h3 {
-      margin-bottom: 10px;
-    }
-
-    .publication p {
-      color: var(--muted);
-    }
-
-    a.publication {
-      display: block;
-      transition: border-color 0.15s ease, transform 0.15s ease;
-    }
-
-    a.publication:hover {
-      border-color: var(--blue);
-      transform: translateY(-2px);
-    }
-
-    a.publication:hover h3 {
-      color: var(--blue);
-    }
-
-    .footer {
-      padding: 8px 0 40px;
-    }
-
-    .footer-card {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      border: 2px solid var(--line-strong);
-      border-radius: 4px;
-      padding: 20px;
-      background: var(--card);
-      flex-wrap: wrap;
-    }
-
-    .footer-card p {
-      color: var(--muted);
-    }
-
-    .footer-actions {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    @media (max-width: 980px) {
-      .hero-layout {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-copy,
-      .hero-visual {
-        min-height: 420px;
-      }
-
-      .project-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .publication-list {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 680px) {
-      .shell {
-        width: min(100% - 24px, 1184px);
-      }
-
-      .nav,
-      .section-head,
-      .footer-card {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .hero {
-        padding-top: 32px;
-      }
-
-      .hero-copy {
-        min-height: auto;
-        padding: 20px;
-      }
-
-      .hero-visual {
-        min-height: 360px;
-      }
-
-      .metrics,
-      .project-grid {
-        grid-template-columns: 1fr;
-      }
-    }
+    :root { --ink:#1c2b33; --muted:#59676f; --blue:#0064e0; --line:#dce2e6; --soft:#f3f6f8; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; scroll-padding-top:100px; }
+    body { margin:0; color:var(--ink); background:#fff; font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; -webkit-font-smoothing:antialiased; }
+    a { color:inherit; text-decoration:none; }
+    a:focus-visible, button:focus-visible, summary:focus-visible { outline:3px solid var(--blue); outline-offset:6px; }
+    .skip-link { position:fixed; top:12px; left:12px; z-index:100; padding:12px 20px; background:white; border-radius:30px; transform:translateY(-160%); }
+    .skip-link:focus { transform:translateY(0); }
+    .shell { width:min(1280px,calc(100% - 96px)); margin-inline:auto; }
+    h1,h2,h3,p { margin:0; }
+    h1,h2,h3 { font-weight:450; }
+    h1 { font-size:clamp(44px,5.3vw,76px); line-height:1.06; letter-spacing:-.045em; }
+    h2 { font-size:clamp(32px,3.4vw,48px); line-height:1.12; letter-spacing:-.035em; }
+    h3 { font-size:24px; line-height:1.25; letter-spacing:-.025em; }
+    p,li { font-size:16px; line-height:1.65; }
+    .eyebrow { margin-bottom:20px; font-size:12px; font-weight:600; letter-spacing:.1em; line-height:1.5; text-transform:uppercase; color:var(--muted); }
+    .topbar { position:sticky; top:0; z-index:20; background:rgba(255,255,255,.96); backdrop-filter:blur(16px); border-bottom:1px solid #edf0f2; }
+    .nav { display:flex; align-items:center; justify-content:space-between; gap:24px; min-height:82px; }
+    .brand { display:flex; gap:12px; align-items:center; white-space:nowrap; font-size:18px; font-weight:600; letter-spacing:-.035em; }
+    .mark { color:var(--blue); font-size:20px; font-weight:500; letter-spacing:-.08em; }
+    .nav-links { display:flex; align-items:center; gap:28px; }
+    .nav-links a { font-size:14px; font-weight:500; white-space:nowrap; padding-block:12px; }
+    .nav-links a:hover { color:var(--blue); }
+    .nav-links .nav-contact { background:var(--blue); color:white; border-radius:30px; padding:13px 23px; }
+    .mobile-menu { display:none; }
+    .button { display:inline-flex; align-items:center; justify-content:center; gap:12px; min-height:50px; padding:14px 24px; border:1px solid var(--line); border-radius:999px; font-size:14px; font-weight:600; color:var(--blue); background:white; transition:background .2s,transform .2s; }
+    .button:hover { background:#edf4fd; transform:translateY(-2px); }
+    .button.primary { color:#fff; border-color:var(--blue); background:var(--blue); }
+    .button.primary:hover { background:#0053bc; }
+    .button svg { width:18px; height:18px; }
+    .hero { padding:72px 0 64px; background:linear-gradient(130deg,#f8fafb,#edf3f8 65%,#e6eef8); }
+    .hero-layout { display:grid; grid-template-columns:1.2fr .8fr; gap:80px; align-items:center; }
+    .hero-copy { padding:16px 0; }
+    .hero-copy .intro { max-width:660px; margin:28px 0 18px; font-size:21px; line-height:1.5; letter-spacing:-.02em; }
+    .hero-copy .bio { max-width:600px; color:var(--muted); }
+    .hero-actions { display:flex; flex-wrap:wrap; gap:12px; margin-top:32px; }
+    .hero-visual { margin:0; position:relative; height:580px; border-radius:28px; overflow:hidden; background:#d8e3ed; }
+    .hero-visual img { width:100%; height:100%; object-fit:cover; object-position:center 38%; display:block; }
+    .metrics { display:grid; grid-template-columns:repeat(3,1fr); padding-block:36px; border-bottom:1px solid var(--line); }
+    .metric { padding:8px 32px; border-right:1px solid var(--line); display:flex; align-items:center; gap:20px; }
+    .metric:first-child { padding-left:0; }
+    .metric:last-child { border:0; }
+    .metric strong { font-size:48px; font-weight:400; line-height:1; letter-spacing:-.05em; color:var(--blue); }
+    .body2 { color:var(--muted); font-size:13px; line-height:1.5; }
+    section:not(.hero) { padding-block:96px; }
+    .section-head { display:flex; justify-content:space-between; align-items:flex-end; gap:60px; margin-bottom:40px; }
+    .section-head>p { max-width:430px; color:var(--muted); }
+    .section-head .eyebrow { margin-bottom:14px; }
+    .project-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:32px; }
+    .project-card { min-width:0; }
+    .project-visual { aspect-ratio:1.15; margin-bottom:26px; background:var(--soft); border-radius:24px; overflow:hidden; }
+    .project-visual img { display:block; width:100%; height:100%; object-fit:cover; transition:transform .35s; }
+    .project-visual img.img-contain { object-fit:contain; padding:18px; background:var(--soft); }
+    .project-card:hover .project-visual img { transform:scale(1.025); }
+    .project-card h3 { margin-bottom:18px; }
+    .tags { display:flex; gap:7px; flex-wrap:wrap; margin-bottom:20px; }
+    .tag { padding:5px 9px; border-radius:7px; background:var(--soft); color:var(--muted); font-size:11px; line-height:1.4; }
+    .tag.active { color:#075ab4; background:#edf4fd; }
+    ul { padding-left:18px; margin:0; }
+    li { color:var(--muted); font-size:14px; line-height:1.7; }
+    li+li { margin-top:10px; }
+    #industry { border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+    #industry .project-grid { grid-template-columns:1fr; }
+    #industry .project-card { display:grid; grid-template-columns:1fr 1fr; gap:16px 40px; align-content:start; }
+    #industry .project-visual { grid-row:1 / 5; margin:0; }
+    #industry .project-card h3 { margin:0; }
+    #industry .project-visual { aspect-ratio:1.7; }
+    #industry .project-visual img { object-fit:contain; background:var(--soft); }
+    .publication-list { counter-reset:paper; }
+    .publication { position:relative; counter-increment:paper; display:grid; grid-template-columns:46px minmax(0,1fr) 26px; gap:24px; padding:30px 0; border-top:1px solid var(--line); align-items:start; transition:color .2s; }
+    .publication:last-child { border-bottom:1px solid var(--line); }
+    .publication:before { content:counter(paper,decimal-leading-zero); padding-top:4px; font-size:13px; color:var(--muted); }
+    .publication:after { content:"↗"; font-size:24px; color:var(--blue); }
+    .publication h3 { font-size:22px; margin-bottom:10px; }
+    .publication p { color:var(--muted); font-size:14px; }
+    .publication:hover h3 { color:var(--blue); }
+    .news-card { display:grid; grid-template-columns:1fr 1fr; border-radius:28px; overflow:hidden; background:var(--soft); }
+    .news-image { min-height:440px; margin:0; background:#dfe8ef; }
+    .news-image img { width:100%; height:100%; object-fit:cover; display:block; }
+    .news-copy { align-self:center; padding:48px; }
+    .news-copy h3 { font-size:clamp(30px,3vw,42px); margin-bottom:24px; }
+    .news-copy p:not(.eyebrow) { color:var(--muted); }
+    .news-copy .button { margin-top:28px; }
+    .news-copy .news-meta { margin-top:20px; font-size:12px; }
+    .footer { background:var(--soft); margin-top:16px; padding:72px 0 28px; }
+    .footer-card { display:flex; justify-content:space-between; align-items:center; gap:36px; }
+    .footer h2 { margin-bottom:16px; }
+    .footer p { color:var(--muted); }
+    .footer-actions { display:flex; gap:12px; flex-wrap:wrap; }
+    .footer-note { margin-top:60px; padding-top:24px; border-top:1px solid var(--line); font-size:12px; }
+    @media(min-width:1500px) { .hero-layout { gap:100px; } }
+    @media(max-width:1100px) { .shell { width:calc(100% - 64px); } .nav-links { gap:20px; } .hero-layout { gap:40px; } .hero-visual { height:540px; } .project-grid { gap:24px; } .metric { padding-inline:24px; gap:14px; } .news-copy { padding:32px; } }
+    @media(max-width:800px) { .nav-links { display:none; } .mobile-menu { display:block; } .mobile-menu summary { cursor:pointer; font-size:14px; padding:12px 18px; border:1px solid var(--line); border-radius:24px; } .mobile-menu[open] .mobile-links { display:grid; gap:4px; position:absolute; top:73px; left:24px; right:24px; padding:16px; border:1px solid var(--line); border-radius:20px; background:white; box-shadow:0 16px 40px #1c2b3314; } .mobile-links a { padding:12px; font-size:15px; } .hero-layout { grid-template-columns:1fr; } .hero-visual { height:520px; } .hero-visual img { object-position:center 35%; } .hero-copy { max-width:640px; } .section-head { align-items:flex-start; flex-direction:column; gap:24px; } .section-head>p { max-width:620px; } .project-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:40px 24px; } .news-card { grid-template-columns:1fr; } .news-image { min-height:0; aspect-ratio:1.7; } .metrics { gap:18px; } .metric { flex-direction:column; align-items:flex-start; padding-inline:18px; } .footer-card { flex-direction:column; align-items:flex-start; } }
+    @media(max-width:540px) { .shell { width:calc(100% - 40px); } .nav { min-height:72px; } .hero { padding:40px 0; } h1 { font-size:48px; } .hero-copy .intro { font-size:20px; } .hero-visual { height:420px; border-radius:22px; } .metrics { padding-block:28px; gap:12px; } .metric { padding:0 12px 0 0; gap:12px; } .metric strong { font-size:36px; } .metric .body2 { font-size:11px; } section:not(.hero) { padding-block:64px; } .project-grid,#industry .project-grid { grid-template-columns:1fr; gap:44px; } .project-visual { aspect-ratio:1.25; } .news-copy { padding:28px; } .news-card { border-radius:22px; } .publication { gap:12px; grid-template-columns:24px minmax(0,1fr) 20px; padding-block:26px; } .publication h3 { font-size:19px; } .publication p { font-size:13px; } .footer { padding-top:56px; } }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } *,*::before,*::after { transition:none!important; } }
+
+    #projects { padding-top:80px; }
+    .research-feature { padding-block:64px; border-top:1px solid var(--line); }
+    .research-feature:last-child { padding-bottom:0; }
+    .feature-heading { display:grid; grid-template-columns:72px minmax(0,840px); gap:24px; align-items:start; margin-bottom:36px; }
+    .feature-number { color:var(--blue); font-size:16px; padding-top:9px; }
+    .feature-heading h3 { font-size:clamp(30px,3.3vw,46px); line-height:1.15; letter-spacing:-.035em; }
+    .feature-layout { display:grid; grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr); gap:48px; align-items:center; }
+    .feature-copy p { color:var(--muted); margin-bottom:20px; }
+    .feature-copy h4 { margin:28px 0 10px; font-size:17px; font-weight:600; }
+    .feature-copy .tags { margin-top:24px; }
+    .research-image { display:flex; align-items:center; justify-content:center; padding:24px; border:1px solid var(--line); border-radius:24px; background:white; overflow:hidden; min-width:0; }
+    .research-image img { display:block; width:100%; height:auto; object-fit:contain; }
+    .research-image:hover { border-color:#8bb8eb; }
+    .feature-gallery { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-top:32px; }
+    .feature-gallery .research-image { min-height:290px; }
+    .feature-gallery img { max-height:440px; }
+    .feature-stats { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-top:32px; padding:28px 32px; background:var(--soft); border-radius:20px; }
+    .feature-stat strong { display:block; color:var(--blue); font-weight:450; font-size:34px; letter-spacing:-.04em; margin-bottom:6px; }
+    .feature-stat span { display:block; color:var(--muted); font-size:13px; line-height:1.5; }
+    .feature-source { margin-top:24px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:16px; }
+    .feature-source p { color:var(--muted); font-size:12px; max-width:640px; }
+    .feature-source p a { text-decoration:underline; text-underline-offset:3px; }
+    .stereo-steps { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:36px; }
+    .stereo-step { border-top:2px solid #bdd4ef; padding-top:20px; }
+    .stereo-step h4 { margin:0 0 12px; font-size:18px; font-weight:500; }
+    .stereo-step p { color:var(--muted); font-size:14px; }
+    .stereo-image img { max-height:660px; }
+    @media(max-width:800px) { .feature-layout { grid-template-columns:1fr; gap:24px; } .feature-heading { grid-template-columns:40px 1fr; gap:12px; } .feature-gallery { grid-template-columns:1fr; } .feature-gallery .research-image { min-height:0; } .stereo-steps { grid-template-columns:1fr; } .research-feature { padding-block:48px; } }
+    @media(max-width:540px) { .feature-stats { padding:24px; grid-template-columns:1fr; gap:24px; } .feature-stat { display:grid; grid-template-columns:112px 1fr; gap:12px; align-items:center; } .feature-stat strong { font-size:30px; margin:0; } .research-image { padding:12px; border-radius:16px; } .feature-heading h3 { font-size:30px; } .feature-heading { grid-template-columns:28px 1fr; } }
+
+
+    #imaging .project-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+    .device-section { border-top:1px solid var(--line); }
+    .device-section h2 { max-width:1000px; }
+    .paper-highlight { background:var(--soft); padding:32px; border-radius:22px; margin-top:36px; }
+    .paper-highlight h3 { font-size:clamp(24px,2.5vw,34px); margin-bottom:16px; max-width:950px; }
+    .paper-highlight p { color:var(--muted); margin-bottom:16px; }
+    .paper-highlight .eyebrow { margin-bottom:14px; }
+    .paper-highlight .button { margin-top:8px; }
+    .device-goals { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:32px; }
+    .device-goals div { background:var(--soft); border-radius:18px; padding:24px; }
+    .device-goals h3 { font-size:20px; margin-bottom:10px; }
+    .device-goals p { color:var(--muted); font-size:14px; }
+    .device-section .feature-copy > p:first-child { margin-top:0; }
+    .event-note { margin-top:18px; color:var(--muted); font-size:14px; }
+    .device-section .feature-gallery .research-image { align-self:start; }
+    @media(max-width:800px) { .device-goals { grid-template-columns:1fr; } #industry .project-card { display:block; } #industry .project-visual { margin-bottom:24px; } #industry .project-card h3 { margin-bottom:18px; } }
+    @media(max-width:540px) { .paper-highlight { padding:24px; } #imaging .project-grid { grid-template-columns:1fr; } }
+
+    /* Full-width bands distinguish page sections from individual project features. */
+    main > .section-band { padding-block:96px; border-top:1px solid #cbd6df; background:#fff; }
+    main > #projects, main > #industry, main > #incontinence { background:#edf2f6; }
+    main > #industry { border-bottom:0; }
+    .metrics { border-bottom:0; }
+    .section-band .section-head { margin-bottom:48px; }
+    .section-band .section-head h2 { font-weight:500; }
+    #projects .research-feature { border-top:2px solid #c4d0db; padding-block:72px; }
+    #projects .research-feature:last-child { padding-bottom:0; }
+    #projects .feature-stats { background:#fff; border:1px solid #d5dfe7; }
+    #incontinence .paper-highlight { background:#fff; border:1px solid #d5dfe7; }
+    .footer { margin-top:0; border-top:1px solid #cbd6df; }
+    @media(max-width:800px) { main > .section-band { padding-block:72px; } #projects .research-feature { padding-block:56px; } }
+    @media(max-width:540px) { main > .section-band { padding-block:56px; } .section-band .section-head { margin-bottom:32px; } #projects .research-feature { padding-block:44px; } }
   </style>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
   <header class="topbar">
     <nav class="shell nav" aria-label="Primary navigation">
       <a class="brand" href="#">
@@ -620,158 +177,150 @@
         <span>Ryan Chan</span>
       </a>
       <div class="nav-links">
-        <a href="#output">Research Output</a>
-        <a href="#projects">Research @ ARCADE</a>
-        <a href="#industry">Industry Experience</a>
-        <a href="#imaging">Other Research Projects</a>
-        <a href="#contact">Contact</a>
+        <a href="#output">Publications</a><a href="#projects">Research</a><a href="#industry">Industry</a><a href="#news">News</a><a class="nav-contact" href="#contact">Contact ↗</a>
       </div>
+      <details class="mobile-menu"><summary>Menu</summary><div class="mobile-links">
+        <a href="#output">Publications</a><a href="#projects">Research</a><a href="#industry">Industry</a><a href="#capseal">Smith+Nephew / CapSeal</a><a href="#incontinence">Incontinence devices</a><a href="#imaging">More projects</a><a href="#news">News</a><a href="#contact">Contact</a>
+      </div></details>
     </nav>
   </header>
 
-  <main>
-    <section class="hero">
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
       <div class="shell hero-layout">
         <div class="hero-copy">
-          <div>
-            <p class="eyebrow">Johns Hopkins Biomedical Engineering</p>
-            <h1>Hi, I'm Chin Hang Ryan Chan. I build computer-assisted surgical systems, medical imaging pipelines, and device prototypes.</h1>
-          </div>
-          <p>B.S./M.S.E. student in Biomedical Engineering at Johns Hopkins, working across endoscopic 3D reconstruction, surgical robotics simulation, hyperpolarized MRI, and industry-sponsored medical device design.</p>
-          <div class="metrics" aria-label="Research focus areas">
-            <div class="metric">
-              <strong>5</strong>
-              <span class="body2">Peer-reviewed publications</span>
-            </div>
-            <div class="metric">
-              <strong>3</strong>
-              <span class="body2">Years of Research Experience at Johns Hopkins and Memorial Sloan Kettering</span>
-            </div>
-            <div class="metric">
-              <strong>2</strong>
-              <span class="body2">Industry R&D experiences with Cornerstone Robotics and Smith+Nephew</span>
-            </div>
-          </div>
-          <div class="hero-actions">
-            <a class="button primary" href="#output">View Research Output</a>
-            <a class="button" href="#contact">Contact</a>
-          </div>
+          <h1 id="hero-title">Chin Hang<br>Ryan Chan</h1>
+          <p class="intro">B.S./M.S.E. student in Biomedical Engineering at Johns Hopkins.</p>
+          <p class="bio">Research in endoscopic 3D reconstruction, surgical robotics, hyperpolarized MRI, and medical device design.</p>
+          <div class="hero-actions"><a class="button primary" href="#output">Publications <span aria-hidden="true">↓</span></a><a class="button" href="#projects">Research projects <span aria-hidden="true">↓</span></a></div>
         </div>
-
-        <div class="hero-visual" aria-label="Blue geometric surgical robotics visualization">
-          <!-- TODO: add image -->
-          <img src="images/ryan_main.jpg" alt="Ryan Chan portrait or project visualization" onerror="this.classList.add('img-missing')">
-          <div class="scan-grid"></div>
-          <div class="scan-object"></div>
-          <div class="scan-chip one">3D Reconstruction</div>
-          <div class="scan-chip two">Robotic Surgery</div>
-        </div>
+        <figure class="hero-visual"><img src="images/ryan-portrait-web.jpg" alt="Chin Hang Ryan Chan" fetchpriority="high"></figure>
       </div>
     </section>
-    <section id="output" class="shell" aria-labelledby="publications-title">
+    <div class="shell metrics" aria-label="Experience at a glance">
+      <div class="metric"><strong>5</strong><span class="body2">Peer-reviewed<br>publications</span></div>
+      <div class="metric"><strong>3</strong><span class="body2">Years of research at<br>Johns Hopkins &amp; MSK</span></div>
+      <div class="metric"><strong>2</strong><span class="body2">Industry R&amp;D experiences<br>in robotics &amp; device design</span></div>
+    </div>
+    <section id="output" class="section-band" aria-labelledby="publications-title">
+      <div class="shell">
       <div class="section-head">
         <div>
-          <p class="eyebrow">Publications and Honors</p>
-          <h2 id="publications-title">Research Output</h2>
+          <h2 id="publications-title">Publications</h2>
         </div>
-        <p>Peer-reviewed work in surgical navigation, urology device innovation, and computer-assisted interventions.</p>
       </div>
 
       <div class="publication-list">
-        <a class="publication" href="https://iopscience.iop.org/article/10.1088/1873-4030/ae91ee" target="_blank" rel="noopener"><!-- TODO: replace # with DOI/PubMed link -->
-          <h3>A Benchtop Model for Penile Clamp Biofluid Mechanics</h3>
-          <p>Goyal, T., Chan, C.H.R., et al. Medical Engineering &amp; Physics, 2026. </p>
-        </a>
-        <a class="publication" href="https://link.springer.com/article/10.1007/s11548-026-03650-y" target="_blank" rel="noopener"><!-- TODO: replace # with DOI/PubMed link -->
-          <h3>Global Region Reidentification for Camera Relocalization (IPCAI)</h3>
-          <p>Soberanis-Mukul, R.D., Chou, R., Chan, C.H.R., et al. Int J CARS, 2026. Special Issue: IPCAI 2026. </p>
-        </a>
-        <a class="publication" href="https://pubmed.ncbi.nlm.nih.gov/41377485/" target="_blank" rel="noopener"><!-- TODO: replace # with DOI/PubMed link -->
-          <h3>Monocular Vision-Based Endoscopic Sinus Navigation (MICCAI AE-CAI)</h3>
-          <p>Soberanis-Mukul, R.D., Chan, C.H.R., et al. Healthcare Technology Letters, 2025. Special Issue: MICCAI AE-CAI 2025. Co-first author</p>
-        </a>
-        <a class="publication" href="https://pubmed.ncbi.nlm.nih.gov/39280661/" target="_blank" rel="noopener"><!-- TODO: replace # with DOI/PubMed link -->
-          <h3>Narrative Patent Review: Male SUI Devices</h3>
-          <p>Sadlowski, A.J., et al., Chan, C.H.R. Transl Androl Urol 13.8 (2024): 1602-1617. </p>
-        </a>
-        <a class="publication" href="https://www.auajournals.org/doi/10.1097/01.JU.0001191316.72449.22.21" target="_blank" rel="noopener"><!-- TODO: replace # with DOI/PubMed link -->
-          <h3>CONTIPANTS: Reusable Compressive Incontinence Brief </h3>
-          <p>Shaik, A.S., et al., Chan, C.H.R. J Urol, vol. 215, no. 5S, p. e203, 2026. </p>
-        </a>
+        <a class="publication" href="https://iopscience.iop.org/article/10.1088/1873-4030/ae91ee" target="_blank" rel="noopener"><div><h3>A benchtop model for preliminary assessment of penile clamp effects on biofluid mechanical changes in male urinary incontinence</h3>
+          <p>Goyal, T., Chan, C.H.R., et al. Medical Engineering &amp; Physics 147, 085007 (2026). </p></div></a>
+        <a class="publication" href="https://link.springer.com/article/10.1007/s11548-026-03650-y" target="_blank" rel="noopener"><div><h3>Global Region Reidentification for Camera Relocalization (IPCAI)</h3>
+          <p>Soberanis-Mukul, R.D., Chou, R., Chan, C.H.R., et al. Int J CARS, 2026. Special Issue: IPCAI 2026. </p></div></a>
+        <a class="publication" href="https://pubmed.ncbi.nlm.nih.gov/41377485/" target="_blank" rel="noopener"><div><h3>Monocular Vision-Based Endoscopic Sinus Navigation (MICCAI AE-CAI)</h3>
+          <p>Soberanis-Mukul, R.D., Chan, C.H.R., et al. Healthcare Technology Letters, 2025. Special Issue: MICCAI AE-CAI 2025. Co-first author</p></div></a>
+        <a class="publication" href="https://pubmed.ncbi.nlm.nih.gov/39280661/" target="_blank" rel="noopener"><div><h3>Narrative Patent Review: Male SUI Devices</h3>
+          <p>Sadlowski, A.J., et al., Chan, C.H.R. Transl Androl Urol 13.8 (2024): 1602-1617. </p></div></a>
+        <a class="publication" href="https://www.auajournals.org/doi/10.1097/01.JU.0001191316.72449.22.21" target="_blank" rel="noopener"><div><h3>CONTIPANTS: Reusable Compressive Incontinence Brief </h3>
+          <p>Shaik, A.S., et al., Chan, C.H.R. J Urol, vol. 215, no. 5S, p. e203, 2026. </p></div></a>
+      </div>
+    
       </div>
     </section>
 
-    <section id="projects" class="shell" aria-labelledby="projects-title">
+
+    <section id="projects" class="section-band" aria-labelledby="projects-title">
+      <div class="shell">
+      <div class="section-head"><h2 id="projects-title">ARCADE Lab research</h2><p>Mentored by Prof. Mathias Unberath and Dr. Roger D. Soberanis-Mukul.</p></div>
+
+      <article class="research-feature" aria-labelledby="sinus-title">
+        <div class="feature-heading"><span class="feature-number" aria-hidden="true">01</span><h3 id="sinus-title">CT registration with PnP &amp; continuous scaling</h3></div>
+        <div class="feature-layout">
+          <div class="feature-copy">
+            <p>Monocular SLAM reconstructs the scene and camera path at an unknown scale, in a coordinate system separate from the patient's CT. Navigation requires both the camera pose and reconstructed surface to be aligned with the CT anatomy. Direct surface registration is difficult because the reconstruction is partial and its scale is unknown.</p>
+            <h4>My contribution</h4>
+            <p>I built a CT rendering module to set an initial camera estimate, then displayed the endoscopic frame beside a CT rendering using the same camera calibration. I developed the correspondence-selection module to associate image points with 3D CT locations, and used RANSAC-based PnP to estimate pose while rejecting inconsistent correspondences.</p>
+            <h4>Scale estimation &amp; visualization</h4>
+            <p>I built a continuous scaling pipeline that compares reconstructed 3D points associated with tracked image points against locations obtained by ray tracing into the CT mesh. This brings the reconstruction into CT scale. I integrated the registered camera pose into 3D Slicer using existing visualization modules.</p>
+            <h4>Next challenge</h4><p>Manual correspondence selection must be repeated after the endoscope is removed and navigation restarts. This motivated the automatic re-registration project below.</p>
+            <div class="tags"><span class="tag">PnP / RANSAC</span><span class="tag">Camera calibration</span><span class="tag">CT rendering</span><span class="tag">3D Slicer</span></div>
+          </div>
+          <a class="research-image" href="images/sinus-ct-navigation.jpg" target="_blank" rel="noopener" aria-label="Open published sinus navigation and CT visualization figure at full size"><img loading="lazy" src="images/sinus-ct-navigation.jpg" alt="Published navigation example showing the endoscope image, CT slices, and a 3D anatomy view with corresponding reference locations"></a>
+        </div>
+        <div class="feature-stats" aria-label="Published off-site evaluation results">
+          <div class="feature-stat"><strong>3.2 mm</strong><span>Translation error</span></div><div class="feature-stat"><strong>4.9°</strong><span>Rotation error</span></div><div class="feature-stat"><strong>10</strong><span>Recorded sequences from 8 cadaveric subjects</span></div>
+        </div>
+        <div class="feature-gallery">
+          <a class="research-image" href="images/sinus-pipeline.jpg" target="_blank" rel="noopener" aria-label="Open sinus navigation system pipeline figure"><img loading="lazy" src="images/sinus-pipeline.jpg" alt="System pipeline linking endoscopic SLAM, scale estimation, registration, and CT visualization"></a>
+          <a class="research-image" href="images/endoscopic-reconstruction.jpg" target="_blank" rel="noopener" aria-label="Open endoscopic image and CT correspondence example"><img loading="lazy" src="images/endoscopic-reconstruction.jpg" alt="Corresponding visual reference in an endoscopic image and CT slice"></a>
+        </div>
+        <div class="feature-source"><p>Study results and figures: Soberanis-Mukul, Chan et al., <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12686831/" target="_blank" rel="noopener">Healthcare Technology Letters (2025)</a>, Figs. 1, 3 &amp; 5. © The Authors. Co-first author. Cadaveric proof of concept.</p><a class="button" href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12686831/" target="_blank" rel="noopener">Read paper <span aria-hidden="true">↗</span></a></div>
+      </article>
+
+      <article class="research-feature" aria-labelledby="relocalization-title">
+        <div class="feature-heading"><span class="feature-number" aria-hidden="true">02</span><h3 id="relocalization-title">Automatic CT re-registration after endoscope reinsertion</h3></div>
+        <div class="feature-layout">
+          <div class="feature-copy">
+            <p>Surgeons may remove an endoscope to clean the lens or switch tools. When the camera returns, navigation must recover its alignment with CT. Repeating manual correspondence selection interrupts the workflow; this project aims to recover that alignment automatically.</p>
+            <h4>Method</h4><p>The system matches the current camera image to a previously observed frame with a known pose. That prior pose supplies a CT rendering for image matching and geometric pose estimation, replacing the manually chosen initial view used in the first project.</p>
+            <h4>My contribution</h4><p>I adapted my existing registration pipeline to use the current frame together with a matched prior frame and a CT rendering generated from the prior pose. This connects prior-image retrieval to the registration workflow so navigation can be reinitialized without selecting correspondences manually each time.</p>
+            <div class="tags"><span class="tag">Image retrieval</span><span class="tag">PnP</span><span class="tag">CT rendering</span><span class="tag">Automatic registration</span></div>
+          </div>
+          <a class="research-image" href="images/camera-relocalization.jpg" target="_blank" rel="noopener" aria-label="Open camera relocalization correspondences and rendered views"><img loading="lazy" src="images/camera-relocalization.jpg" alt="Feature correspondences between query and retrieved images alongside CT views rendered from recovered camera poses"></a>
+        </div>
+        <div class="feature-stats" aria-label="Published relocalization evaluation results">
+          <div class="feature-stat"><strong>1.74 mm</strong><span>Average translation error</span></div><div class="feature-stat"><strong>0.09 rad</strong><span>Average rotation error</span></div><div class="feature-stat"><strong>8</strong><span>Sequences from 3 cadaver studies</span></div>
+        </div>
+        <div class="feature-gallery">
+          <a class="research-image" href="images/relocalization-pipeline.png" target="_blank" rel="noopener" aria-label="Open published camera relocalization pipeline"><img loading="lazy" src="images/relocalization-pipeline.png" alt="Published pipeline from query image retrieval to feature matching, CT correspondences, and PnP camera pose estimation"></a>
+          <a class="research-image" href="images/relocalization-results.png" target="_blank" rel="noopener" aria-label="Open published camera trajectory results"><img loading="lazy" src="images/relocalization-results.png" alt="Camera pose distributions showing reference trajectories, reinsertion, and subsequent navigation progressions"></a>
+        </div>
+        <div class="feature-source"><p>Study results and figures: Soberanis-Mukul et al., <a href="https://link.springer.com/article/10.1007/s11548-026-03650-y" target="_blank" rel="noopener">International Journal of CARS (2026)</a>, Figs. 1–3. © CARS. IPCAI 2026.</p><a class="button" href="https://link.springer.com/article/10.1007/s11548-026-03650-y" target="_blank" rel="noopener">Read paper <span aria-hidden="true">↗</span></a></div>
+      </article>
+
+      <article class="research-feature" aria-labelledby="stereo-title">
+        <div class="feature-heading"><span class="feature-number" aria-hidden="true">03</span><h3 id="stereo-title">Tissue mesh mosaicking for robotic scanning</h3></div>
+        <div class="feature-layout">
+          <div class="feature-copy">
+            <p>In this ARCADE Lab project, a robotic endoscope is being developed to visually survey tissue before closer ultrasound and fluorescence imaging. The ultrasound scan needs a consistent distance from the tissue, whose surface contains peaks and valleys. A 3D surface model is intended to support that motion planning.</p>
+            <h4>Technical challenge</h4><p>A stereo video sequence captures local views of the surface. Building a mesh of the entire scanned area requires reliable camera poses, metric depth, and a way to join the observations. Robot kinematics alone can introduce positioning errors and drift.</p>
+            <h4>My contribution</h4><p>I refined a mosaicking pipeline that combines SLAM-based camera trajectories, stereo depth estimation, and surface reconstruction. Camera poses place the depth observations into a common scene; stereo provides metric tissue depth. Marching cubes then extracts a surface mesh from the combined reconstruction.</p>
+            <div class="tags"><span class="tag active">ARCADE Lab</span><span class="tag">SLAM</span><span class="tag">Stereo depth</span><span class="tag">Marching cubes</span></div>
+          </div>
+          <a class="research-image stereo-image" href="images/stereoscopic-mesh.jpg" target="_blank" rel="noopener" aria-label="Open stereo camera trajectory and reconstructed mesh"><img loading="lazy" src="images/stereoscopic-mesh.jpg" alt="Estimated camera trajectory above a textured 3D surface reconstructed from stereoscopic imaging"></a>
+        </div>
+        <div class="stereo-steps" aria-label="Mesh reconstruction workflow">
+          <div class="stereo-step"><h4>1. Estimate motion</h4><p>Estimate camera trajectories with SLAM to locate each depth observation in the scanned scene.</p></div>
+          <div class="stereo-step"><h4>2. Fuse depth</h4><p>Project metric stereo depth into the shared scene using the estimated camera poses.</p></div>
+          <div class="stereo-step"><h4>3. Reconstruct the surface</h4><p>Use marching cubes to extract a mesh from the combined tissue reconstruction.</p></div>
+        </div>
+      </article>
+    
+      </div>
+    </section>
+
+
+    <section id="news" class="section-band" aria-labelledby="news-title">
+      <div class="shell">
+      <div class="section-head"><h2 id="news-title">News</h2></div>
+      <article id="design-day" class="news-card">
+        <figure class="news-image"><img src="images/sweatsense-design-day-2026.jpg" loading="lazy" alt="Jason Konadu, Fausto Kang, and Ryan Chan presenting SweatSense at Design Day 2026"></figure>
+        <div class="news-copy"><p class="eyebrow">2026 ECE Dean’s Design Award</p><h3>SweatSense: kidney health monitoring</h3><p>Developed with Fausto Kang and Jason Konadu, SweatSense measures urea in sweat to help people track kidney health between clinical visits.</p><a class="button primary" href="https://engineering.jhu.edu/ece/news/award-winning-project-aims-to-improve-kidney-disease-monitoring/" target="_blank" rel="noopener noreferrer">Read the Hopkins feature <span aria-hidden="true">↗</span></a><p class="news-meta">Design Day 2026 · Featured in Johns Hopkins Engineering, June 8, 2026</p></div>
+      </article>
+
+    
+      </div>
+    </section>
+
+    <section id="industry" class="section-band" aria-labelledby="industry-title">
+      <div class="shell">
       <div class="section-head">
         <div>
-          <p class="eyebrow">Projects</p>
-          <h2 id="projects-title">Projects at ARCADE Lab</h2>
+          <h2 id="industry-title">Industry experience</h2>
         </div>
-        <p>Selected work from ARCADE Lab, mentored by Prof. Mathias Unberath and Dr. Roger D. Soberanis-Mukul</p>
       </div>
 
       <div class="project-grid">
         <article class="project-card">
-          <div class="project-visual"><!-- TODO: add image --><img src="images/endoscopic-reconstruction.jpg" alt="Real-Time Endoscopic 3D Reconstruction" class="img-contain" onerror="this.classList.add('img-missing')"></div>
-          <h3>Real-Time Endoscopic 3D Reconstruction</h3>
-          <div class="tags">
-            <span class="tag active">ARCADE Lab</span>
-            <span class="tag">ROS2</span>
-            <span class="tag">3D Slicer</span>
-            <span class="tag">SLAM</span>
-          </div>
-          <ul>
-            <li>Implemented real-time 3D reconstruction for sinus endoscopy using ROS2, Python, and computer vision.</li>
-            <li>Improved reconstruction framerate by 300%, enabling real-time clinical visualization workflows.</li>
-            <li>Registered camera trajectory into 3D Slicer with 3.2 mm / 4.9 degree pose accuracy across 10 cadaveric trials.</li>
-          </ul>
-        </article>
-
-        <article class="project-card">
-          <div class="project-visual portal"><!-- TODO: add image --><img src="images/camera-relocalization.jpg" alt="Camera Relocalization for Surgical Navigation" class="img-contain" onerror="this.classList.add('img-missing')"></div>
-          <h3>Camera Relocalization for Surgical Navigation</h3>
-          <div class="tags">
-            <span class="tag active">ARCADE Lab</span>
-            <span class="tag">DINOv2</span>
-            <span class="tag">ORB / PnP</span>
-            <span class="tag">Python</span>
-          </div>
-          <ul>
-            <li>Built a training-free camera relocalization pipeline combining DINOv2-based global image retrieval with local feature matching and PnP pose recovery.</li>
-            <li>Reidentified the surgical region of interest and relocalized up to 78% of query frames without any fine-tuning or CT-space exhaustive matching.</li>
-            <li>Outperformed a prior global-matching baseline, cutting translation error to 1.9 mm and rotation error to 0.17 rad while running at real-time frame rates.</li>
-          </ul>
-        </article>
-
-        <article class="project-card">
-          <div class="project-visual"><!-- TODO: add image --><img src="images/stereoscopic-mesh.jpg" alt="3D Mesh Reconstruction via Stereoscopic Imaging" class="img-contain" onerror="this.classList.add('img-missing')"></div>
-          <h3>3D Mesh Reconstruction via Stereoscopic Imaging</h3>
-          <div class="tags">
-            <span class="tag active">ARPA-H / ARCADE Lab</span>
-            <span class="tag">OneSLAM</span>
-            <span class="tag">Stereo Depth</span>
-            <span class="tag">Open3D</span>
-          </div>
-          <ul>
-            <li>Developed a mosaicking pipeline that fuses monocular SLAM trajectories (OneSLAM) with stereoscopic depth estimation into a scaled, registered 3D mesh.</li>
-            <li>Designed a continuous scaling and outlier-rejection scheme to correct depth-derived scale drift, aligning reconstructed meshes to DVRK/ECM ground-truth geometry.</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <section id="industry" class="shell" aria-labelledby="industry-title">
-      <div class="section-head">
-        <div>
-          <p class="eyebrow">Industry Experience</p>
-          <h2 id="industry-title">Industry R&amp;D Projects</h2>
-        </div>
-        <p>Industry R&amp;D projects in medical robotics and device design.</p>
-      </div>
-
-      <div class="project-grid">
-        <article class="project-card">
-          <div class="project-visual portal"><!-- TODO: add image --><img src="images/cornerstone.jpg" alt="CSR" onerror="this.classList.add('img-missing')"></div>
+          <div class="project-visual portal"><img loading="lazy" src="images/cornerstone.jpg" alt="Cornerstone Robotics surgical system"></div>
           <h3> Internship at Cornerstone Robotics </h3>
           <div class="tags">
             <span class="tag active">Cornerstone Robotics</span>
@@ -784,35 +333,76 @@
           </ul>
         </article>
 
-        <article class="project-card">
-          <div class="project-visual endo"><!-- TODO: add image --><img src="images/hip-arthroscopy.jpg" alt="Hip Arthroscopy Tool Design" onerror="this.classList.add('img-missing')"></div>
-          <h3>Design Team Lead - Sponsored Project</h3>
-          <div class="tags">
-            <span class="tag active">Smith & Nephew</span>
-            <span class="tag">PTC Creo</span>
-            <span class="tag">Clinical Needs</span>
-            <span class="tag">Prototyping</span>
-          </div>
-          <ul>
-            <li>Applied iterative design, prototyping, and surgical workflow analysis to develop hip arthroscopic tool concepts.</li>
-            <li>Modeled prototypes and technical drawings in PTC Creo while coordinating clinicians and industry mentors.</li>
-          </ul>
-        </article>
+        
+      </div>
+    
       </div>
     </section>
 
-    <section id="imaging" class="shell" aria-labelledby="more-work-title">
+
+    <section id="capseal" class="section-band device-section" aria-labelledby="capseal-title">
+      <div class="shell">
+      <div class="section-head"><div><p class="eyebrow">Smith+Nephew-sponsored design project · Design Day 2026</p><h2 id="capseal-title">CapSeal: hip capsule closure</h2></div></div>
+      <div class="feature-layout">
+        <div class="feature-copy">
+          <p>Hip arthroscopy requires surgeons to manipulate and reapproximate the capsule surrounding the joint. The CapSeal project addresses the difficulty of controlling capsular flaps and passing sutures during closure.</p>
+          <h4>Design challenge</h4><p>Surgeon-driven instruments require manual force and precise wrist motion. Device-driven systems can reduce those demands, but may constrain approach angles or require extra loading and retrieval steps. Our goal was to simplify closure while supporting precise tissue handling.</p>
+          <h4>My contribution</h4><p>As design team lead, I coordinated clinicians and industry mentors, analyzed surgical workflows, and developed tool concepts through iterative prototyping. I created CAD models and technical drawings in PTC Creo.</p>
+          <div class="tags"><span class="tag active">Smith+Nephew</span><span class="tag">Design team lead</span><span class="tag">PTC Creo</span><span class="tag">Prototyping</span></div>
+        </div>
+        <a class="research-image" href="images/capseal-design-poster.png" target="_blank" rel="noopener" aria-label="Open full CapSeal Design Day 2026 poster"><img loading="lazy" src="images/capseal-design-poster.png" alt="CapSeal poster describing the hip capsule closure need, existing instrument limitations, and proposed ergonomic, self-loading, self-retrieving closure system"></a>
+      </div>
+      <div class="device-goals" aria-label="CapSeal design goals">
+        <div><h3>Ergonomic handle</h3><p>Support controlled manipulation during capsule closure.</p></div><div><h3>Self-loading</h3><p>Reduce manual loading steps in the suture workflow.</p></div><div><h3>Self-retrieving</h3><p>Simplify retrieval during suture passage.</p></div>
+      </div>
+      <div class="feature-gallery">
+        <a class="research-image" href="images/smith-nephew-design-day-2026.jpg" target="_blank" rel="noopener" aria-label="Open Ryan Chan presenting CapSeal at Design Day 2026"><img loading="lazy" src="images/smith-nephew-design-day-2026.jpg" alt="Ryan Chan beside the CapSeal poster at Design Day 2026"></a>
+        <a class="research-image" href="images/hip-arthroscopy.jpg" target="_blank" rel="noopener" aria-label="Open hip arthroscopy project image"><img loading="lazy" src="images/hip-arthroscopy.jpg" alt="Hip arthroscopy tool design project"></a>
+      </div>
+    
+      </div>
+    </section>
+
+    <section id="incontinence" class="section-band device-section" aria-labelledby="incontinence-title">
+      <div class="shell">
+      <div class="section-head"><div><p class="eyebrow">Johns Hopkins Urology · Device design &amp; verification</p><h2 id="incontinence-title">Male stress incontinence device development &amp; testing</h2></div></div>
+      <div class="feature-layout">
+        <div class="feature-copy">
+          <p>External compression devices need to limit urine leakage while preserving blood flow. My work combines device development with repeatable benchtop testing to study that trade-off.</p>
+          <h4>My contribution</h4><p>I developed clamp verification tests, CAD models, finite element analysis workflows, and materials analysis. I built load-cell and urinary tract benchtop models to measure applied forces and fluid flow.</p>
+          <h4>IncontiMend · Design Day 2024</h4><p>Our IncontiMend project received the Linda Trinh Memorial Award.</p>
+          <div class="tags"><span class="tag active">Linda Trinh Memorial Award</span><span class="tag">CAD / FEA</span><span class="tag">Arduino</span><span class="tag">Benchtop testing</span></div>
+        </div>
+        <a class="research-image" href="images/incontimend-design-day-2024.jpg" target="_blank" rel="noopener" aria-label="Open IncontiMend Linda Trinh Memorial Award photo"><img loading="lazy" src="images/incontimend-design-day-2024.jpg" alt="Ryan Chan holding the Linda Trinh Memorial Award beside the IncontiMend poster at Design Day 2024"></a>
+      </div>
+      <article class="paper-highlight" aria-labelledby="clamp-paper-title">
+        <p class="eyebrow">Featured publication · Second author · 2026</p>
+        <h3 id="clamp-paper-title">A benchtop model for preliminary assessment of penile clamp effects on biofluid mechanical changes in male urinary incontinence</h3>
+        <p>Goyal, T., Chan, C.H.R., et al. <em>Medical Engineering &amp; Physics</em> 147, 085007 (2026).</p>
+        <p>The study compares four commercial clamps using load-cell force measurements and a foam model with separate urinary and venous flow channels. Two foam stiffnesses provide distinct mechanical conditions for testing how compression affects both flows.</p>
+        <p>Clamp geometry and pressure distribution influenced performance beyond average contact stress alone. The model provides a controlled framework for preliminary device comparisons; its simplified anatomy and flow conditions require further validation before clinical conclusions.</p>
+        <a class="button primary" href="https://doi.org/10.1088/1873-4030/ae91ee" target="_blank" rel="noopener">Read the paper <span aria-hidden="true">↗</span></a>
+      </article>
+      <div class="feature-gallery">
+        <a class="research-image" href="images/incontinence-loadcell-figure.jpg" target="_blank" rel="noopener" aria-label="Open Figure 2 load-cell force testing setup"><img loading="lazy" src="images/incontinence-loadcell-figure.jpg" alt="Figure 2 from Goyal et al.: CAD assembly, dimensions, and Arduino HX711 load-cell electronics for clamp force testing"></a>
+        <a class="research-image" href="images/incontinence-flow-figure.jpg" target="_blank" rel="noopener" aria-label="Open Figure 4 benchtop fluid-flow model"><img loading="lazy" src="images/incontinence-flow-figure.jpg" alt="Figure 4 from Goyal et al.: water reservoir and peristaltic-pump circuits feeding the model urethra and dorsal vein for separate flow measurements"></a>
+      </div>
+      <div class="feature-source"><p>Figures 2 &amp; 4: Goyal et al., <em>A benchtop model for preliminary assessment of penile clamp effects on biofluid mechanical changes in male urinary incontinence</em>, Med. Eng. Phys. 147, 085007 (2026). <a href="https://doi.org/10.1088/1873-4030/ae91ee" target="_blank" rel="noopener">doi:10.1088/1873-4030/ae91ee</a>. © 2026 The Authors. <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener">CC BY 4.0</a>. Figures cropped from the supplied paper.</p></div>
+    
+      </div>
+    </section>
+
+    <section id="imaging" class="section-band" aria-labelledby="more-work-title">
+      <div class="shell">
       <div class="section-head">
         <div>
-          <p class="eyebrow">Additional Work</p>
-          <h2 id="more-work-title">Imaging and Device Research</h2>
+          <h2 id="more-work-title">Imaging and device research</h2>
         </div>
-        <p>Research experience spans MRI acquisition, micro-robotics, and patient-centered urology device validation.</p>
       </div>
 
       <div class="project-grid">
         <article class="project-card">
-          <div class="project-visual portal"><!-- TODO: add image --><img src="images/mri-imaging.jpg" class="img-contain" alt="Diffusion-Weighted MRI at MSK" onerror="this.classList.add('img-missing')"></div>
+          <div class="project-visual portal"><img loading="lazy" src="images/mri-imaging.jpg" class="img-contain" alt="Diffusion-Weighted MRI at MSK"></div>
           <h3>Diffusion-Weighted MRI at MSK</h3>
           <div class="tags">
             <span class="tag active">MSKCC</span>
@@ -825,7 +415,7 @@
         </article>
 
         <article class="project-card">
-          <div class="project-visual endo"><!-- TODO: add image --><img src="images/magnetic-microtools.jpg" class="img-contain" alt="Magnetic Micro Tools" onerror="this.classList.add('img-missing')"></div>
+          <div class="project-visual endo"><img loading="lazy" src="images/magnetic-microtools.jpg" class="img-contain" alt="Magnetic Micro Tools"></div>
           <h3>Magnetic Micro Tools</h3>
           <div class="tags">
             <span class="tag active">IMERSE Lab</span>
@@ -837,35 +427,32 @@
           </ul>
         </article>
 
-        <article class="project-card">
-          <div class="project-visual"><!-- TODO: add image --><img src="images/urology-device-testing.jpg" class="img-contain" alt="Male Stress Incontinence Device Testing" onerror="this.classList.add('img-missing')"></div>
-          <h3>Male Stress Incontinence Device Development & Testing</h3>
-          <div class="tags">
-            <span class="tag active">JHU Urology</span>
-            <span class="tag">FEA</span>
-            <span class="tag">Arduino</span>
-          </div>
-          <ul>
-            <li>Developed penile clamp verification tests, CAD models, FEA workflows, and material analysis.</li>
-            <li>Built load-cell and urinary tract benchtop models with realistic urine and blood flow.</li>
-          </ul>
-        </article>
+        
+      </div>
+    
       </div>
     </section>
 
   </main>
 
-  <footer id="contact" class="shell footer">
-    <div class="footer-card">
-      <p class="body2">Ryan Chan | Johns Hopkins B.S./M.S.E. Biomedical Engineering </p>
-      <div class="footer-actions">
-        <a class="button" href="mailto:cchan68@jh.edu" aria-label="Email Ryan Chan">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
-          Email
-        </a>
-        <a class="button" href="https://www.linkedin.com/in/ryan-chan2/" aria-label="LinkedIn profile">LinkedIn</a>
-      </div>
+  <footer id="contact" class="footer">
+    <div class="shell">
+      <div class="footer-card"><div><h2>Contact</h2></div>
+        <div class="footer-actions"><a class="button primary" href="mailto:cchan68@jh.edu">Email Ryan <span aria-hidden="true">↗</span></a><a class="button" href="https://www.linkedin.com/in/ryan-chan2/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-hidden="true">↗</span></a></div>
+      </div><p class="footer-note">Chin Hang Ryan Chan · Johns Hopkins B.S./M.S.E. Biomedical Engineering</p>
     </div>
   </footer>
+  <script>
+    const menu = document.querySelector('.mobile-menu');
+    menu.addEventListener('click', (event) => {
+      if (event.target.closest('a')) menu.open = false;
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && menu.open) {
+        menu.open = false;
+        menu.querySelector('summary').focus();
+      }
+    });
+  </script>
 </body>
 </html>
